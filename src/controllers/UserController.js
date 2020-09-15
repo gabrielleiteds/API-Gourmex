@@ -1,32 +1,50 @@
 const bcrypt = require('bcryptjs')
 const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
+const capitalize = require('../utils/capitalize')
 
 module.exports = {
 	async create(req, res) {
 		const { name, email, password } = req.body;
 
+		const userExists = await User.findOne({
+			where: { email }
+		});
+
+		if (userExists) {
+			return res.status(400).json({ error: 'User already exists' });
+		}
+
+		const user = await User.create({
+			name: capitalize(name),
+			email,
+			password,
+		});
+
+		user.password = undefined;
+
+		return res.status(201).json({ user, token: generateToken({ id: user.id }) });
+	},
+
+	async show(req, res) {
+		const { id } = req.params;
+
+		if (req.userId != id)
+			return res.status(401).json({
+				error: 'The authenticated user cannot show another user'
+			});
+
 		try {
-			const userExists = await User.findOne({
-				where: { email }
-			});
-
-			if (userExists) {
-				return res.status(400).json({ error: 'User already exists' });
-			}
-			var hashPassword = bcrypt.hashSync(password, 8);
-
-			const user = await User.create({
-				name,
-				email,
-				password: hashPassword,
-			});
+			const user = await User.findByPk(id);
 
 			user.password = undefined;
 
-			return res.status(201).json({ user, token: generateToken({ id: user.id }) });
+			if (user) return res.json(user);
+
+			return res.status(400).json({ error: 'User not found' });
 
 		} catch (err) {
+			console.log(err)
 			return res.status(500).json();
 		}
 	},
