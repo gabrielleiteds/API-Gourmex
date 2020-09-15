@@ -8,7 +8,7 @@ module.exports = {
 
     try {
       const findedUser = await User.findOne({
-        where: { email }
+                   where: { email }
       });
 
       if (!findedUser)
