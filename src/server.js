@@ -11,10 +11,9 @@ const routes = require('./routes/routes')
 require("./database/connection");
 
 server.use(cookieParser())
-server.use(bodyParser.text({ defaultCharset: 'utf-8' }));
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
-server.use(routes)
+server.use(routes); 
 
 const PORT = process.env.PORT || 8000;
 
