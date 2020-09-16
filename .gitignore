@@ -3,4 +3,6 @@ yarn-error.log
 
 dev.sqlite
 
+.env
+
 uploads
