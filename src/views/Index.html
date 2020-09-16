@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="./style.css">
+    
+    <title>Gastrô Experience</title>
+</head>
+
+<body class="classe">
+    <div class = "titulo">
+        <h2>SEJA BEM-VINDO</h2>
+        <img class="imagem1" src="loro.png" alt="Minha Figura">        
+    </div>
+    <div class="back">
+        <img class="imagem2" src="background.jpg" alt="Minha Figura">
+        <div id="botao">
+
+            <button onclick="cadastro()">Cadastrar-se</button>	
+            <br><br><br><br>
+            <button onclick="login()">Login</button>	
+            
+        </div>
+        <div id="cadastro">
+            <div id="cadastro2">
+                <form method="POST" action="/register"> 
+                  <h1>Cadastro</h1> 
+                   
+                  <p> 
+                    <label for="name">Seu nome</label>
+                    <input id="name" name="name" required="required" type="text" placeholder="nome" />
+                  </p>
+                   
+                  <p> 
+                    <label for="email">Seu e-mail</label>
+                    <input id="email" name="email" required="required" type="email" placeholder="contato@gmail.com"/> 
+                  </p>
+                   
+                  <p> 
+                    <label for="password">Sua senha</label>
+                    <input id="password" name="password" required="required" type="password" placeholder="ex. 1234"/>
+                  </p>
+                  <button type="submit">Salvar</button>	
+                </form>
+              </div>
+            <br><br>
+            
+            <br><br>
+            <button onclick="voltar()">Voltar</button>	
+            
+        </div>
+        <div id="login">
+            <div id="cadastro2">
+                <form method="POST" action="/login"> 
+                  <h1>Login</h1> 
+                   
+                  <p> 
+                    <label for="email">Seu Email</label>
+                    <input id="email" name="email" required="required" type="email" placeholder="Email" />
+                  </p>              
+                  <p> 
+                    <label for="password">Sua senha</label>
+                    <input id="password" name="password" required="required" type="password" placeholder="ex. 1234"/>
+                  </p>
+                  <button type="submit">Salvar</button>
+                </form>
+              </div>
+            <br><br>
+            <br><br>
+            <button onclick="voltar()">Voltar</button>	
+            
+        </div>
+        
+    </div>
+</body>
+    <script>
+        var cadastro = function cadastro(){
+                document.getElementById('cadastro').style.display = 'block';
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('botao').style.display = 'none';
+                
+            }
+            var login = function login(){
+                document.getElementById('cadastro').style.display = 'none';
+                document.getElementById('login').style.display = 'block';
+                document.getElementById('botao').style.display = 'none';
+                
+            }
+            var voltar = function voltar(){
+                document.getElementById('cadastro').style.display = 'none';
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('botao').style.display = 'block';
+                
+            }
+    </script> 
+
+</html>

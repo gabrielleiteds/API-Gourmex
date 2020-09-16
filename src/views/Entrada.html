@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Gastrô Experience</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        html,.classe {
+            
+            text-align: center;
+            font-family: verdana;
+            background-color: #333;
+            height: 96%;
+            padding: 0;
+
+        }
+        .back {
+            background-color: black;
+            text-align: center;
+            float: left;
+            width: 33%;
+            height: 100%;
+            
+        }
+        .imagem1{
+            height: 80%;
+            padding: 0;
+        }
+        .imagem2{
+            width: 100%;
+            height: 110%;
+            padding: 0;
+        }
+        #botao{
+            position: relative;
+            z-index: 9999;
+            margin-top: -470px;
+            
+        }
+        button{
+            width: 65%;
+            height: 45px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            font-family:Arial, Helvetica, sans-serif;
+            background-color: #A91B23;
+            border-radius: 10px;
+            border-color:  #A91B23;
+
+        }
+        h1{
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        #titulo{
+            background-color: #FBF4E4;
+            text-align: center;
+            float: right;
+            width: 67%;
+            height: 110%;
+            display: block;
+        }
+        #titulo2{
+            background-color: #FBF4E4;
+            text-align: center;
+            float: right;
+            width: 67%;
+            height: 110%;
+            display: none;
+        }
+        .uploadvideo{
+            background-color: #fff;
+            text-align: center;
+            width: 60%;
+            height: 60%;
+            margin-left: 20%;
+            margin-top: 10%;
+            border: 1px solid #333;
+        }
+        h3{
+            text-align: center;
+            font-size: 60px;
+            margin-top: 25%;
+        }
+        h2{
+            text-align: center;
+            font-size: 20px;
+            text-decoration: underline;
+            text-underline-position: below;
+        }
+
+    </style>
+</head>
+
+<body class="classe">
+    <div id = "titulo">       
+    </div>
+    <div id = "titulo2">
+        <Div class="uploadvideo">
+            <h3>▲</h3>
+            <br><br>
+            <h2>Fazer o Upload</h2>
+        </Div>
+        <br><br><br><br>
+        <button onclick="">Enviar</button>       
+    </div>
+    <div class="back">
+        <img class="imagem2" src="background.jpg" alt="Minha Figura">
+        <div id="botao">
+
+            <button onclick="upload()">Upload</button>	
+            <br><br><br><br>
+            <button onclick="videos()">Vídeos</button>
+            <br><br><br><br>
+            <button onclick="">Sair</button>	
+            
+        </div>
+        
+    </div>
+</body>
+    <script>
+        var upload = function upload(){
+                document.getElementById('titulo').style.display = 'none';
+                document.getElementById('titulo2').style.display = 'block';
+                
+            }
+            var videos = function videos(){
+                document.getElementById('titulo').style.display = 'block';
+                document.getElementById('titulo2').style.display = 'none';
+                
+            }
+    </script> 
+
+</html>
