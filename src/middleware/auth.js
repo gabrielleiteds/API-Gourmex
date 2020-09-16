@@ -3,9 +3,9 @@ const jwtConfig = require('../config/jwt');
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
-
-  if (!authorization)
-    return res.status(401).json({ error: 'No token provided' });
+  if(!authorization){
+    return res.status(401).redirect('/');
+  }
 
   const [scheme, token] = authorization.split(' ');
 

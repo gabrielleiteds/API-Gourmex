@@ -22,8 +22,9 @@ module.exports = {
 		});
 
 		user.password = undefined;
+		const token = generateToken({ id: user.id })
 
-		return res.status(201).json({ user, token: generateToken({ id: user.id }) });
+		return res.cookie('authorization', token).json({user: user, token: token});
 	},
 
 	async show(req, res) {
@@ -39,7 +40,7 @@ module.exports = {
 
 			user.password = undefined;
 
-			if (user) return res.render('Entrada.html');
+			if (user) return res.send('oi');
 
 			return res.status(400).json({ error: 'User not found' });
 

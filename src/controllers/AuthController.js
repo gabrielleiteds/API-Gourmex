@@ -8,8 +8,8 @@ module.exports = {
 
     try {
       const findedUser = await User.findOne({
-                   where: { email }
-      });
+       where: { email }
+     });
 
       if (!findedUser)
         return res.status(400).json({ error: 'User not found' });
@@ -18,9 +18,9 @@ module.exports = {
         return res.status(401).json({ error: 'Invalid password' });
 
       findedUser.password = undefined;
+      const token = generateToken({ id: findedUser.id })
 
-      return res.json({ user: findedUser, token: generateToken({ id: findedUser.id }) });
-
+      return res.status(200).cookie('authorization', token).json({user: findedUser, token: token}); 
     } catch (err) {
       return res.status(500).json();
     }

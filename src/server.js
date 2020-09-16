@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-
+const cookieParser = require('cookie-parser')
 const server = express()
 
 const routes = require('./routes/routes')
@@ -10,11 +10,7 @@ const routes = require('./routes/routes')
 //connection with database
 require("./database/connection");
 
-server.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
-}));
+server.use(cookieParser())
 server.use(bodyParser.text({ defaultCharset: 'utf-8' }));
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
