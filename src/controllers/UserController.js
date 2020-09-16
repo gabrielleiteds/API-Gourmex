@@ -40,7 +40,7 @@ module.exports = {
 
 			user.password = undefined;
 
-			if (user) return res.send('oi');
+			if (user) return res.render('entrada.html');
 
 			return res.status(400).json({ error: 'User not found' });
 

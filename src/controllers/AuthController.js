@@ -20,7 +20,7 @@ module.exports = {
       findedUser.password = undefined;
       const token = generateToken({ id: findedUser.id })
 
-      return res.status(200).cookie('authorization', token).json({user: findedUser, token: token}); 
+      return res.status(200).cookie('authorization', token).redirect('/profile'); 
     } catch (err) {
       return res.status(500).json();
     }
@@ -29,7 +29,6 @@ module.exports = {
   logoutUser(req, res) {
     res.clearCookie('auth')
     res.clearCookie('user')
-    res.status(204).send()
-    console.log('saiu')
+    res.status(204).redirect('/')
   },
 }
