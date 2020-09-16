@@ -2,17 +2,13 @@ const jwt = require('jsonwebtoken');
 const jwtConfig = require('../config/jwt');
 
 module.exports = (req, res, next) => {
-  const { authorization } = req.headers;
+  const { authorization } = req.cookies;
+
   if(!authorization){
     return res.status(401).redirect('/');
   }
 
-  const [scheme, token] = authorization.split(' ');
-
-  if (!/^Bearer$/i.test(scheme))
-    return res.status(401).json({ error: 'Malformatted token' });
-
-  jwt.verify(token, jwtConfig.secret, (err, decoded) => {
+  jwt.verify(authorization, jwtConfig.secret, (err, decoded) => {
     if (err)
       return res.status(401).json({ error: 'Invalid token' });
 
