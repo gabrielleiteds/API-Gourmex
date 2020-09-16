@@ -39,7 +39,7 @@ module.exports = {
 
 			user.password = undefined;
 
-			if (user) return res.json(user);
+			if (user) return res.render('Entrada.html');
 
 			return res.status(400).json({ error: 'User not found' });
 
