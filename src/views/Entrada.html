@@ -11,7 +11,7 @@
             margin: 0px;
         }
         html,.classe {
-            
+
             text-align: center;
             font-family: verdana;
             background-color: #333;
@@ -22,6 +22,7 @@
         .back {
             background-color: black;
             text-align: center;
+            justify-content: center;
             float: left;
             width: 33%;
             height: 100%;
@@ -42,11 +43,12 @@
             margin-top: -470px;
             
         }
-        button{
+        button, input{
             width: 65%;
             height: 45px;
             font-size: 24px;
             font-weight: bold;
+            text-align: center;
             color: white;
             font-family:Arial, Helvetica, sans-serif;
             background-color: #A91B23;
@@ -105,38 +107,43 @@
     </div>
     <div id = "titulo2">
         <Div class="uploadvideo">
-            <h3>▲</h3>
-            <br><br>
-            <h2>Fazer o Upload</h2>
-        </Div>
-        <br><br><br><br>
-        <button onclick="">Enviar</button>       
-    </div>
-    <div class="back">
-        <img class="imagem2" src="background.jpg" alt="Minha Figura">
-        <div id="botao">
 
-            <button onclick="upload()">Upload</button>	
-            <br><br><br><br>
-            <button onclick="videos()">Vídeos</button>
-            <br><br><br><br>
-            <button onclick="">Sair</button>	
-            
-        </div>
-        
-    </div>
+            <form action="/user/upload" method="post" enctype="multipart/form-data">
+              <h3>▲</h3>
+              <br><br>
+              <input type="file" name="video" id="video" />
+              <br><br>
+              <input type="submit" value="Get me the stats!" class="btn btn-default"> 
+            </form>
+
+          
+
+      </Div>
+      <br><br><br><br>
+
+  </div>
+  <div class="back">
+
+    <button onclick="upload()">Upload</button>	
+    <br><br><br><br>
+    <button onclick="videos()">Vídeos</button>
+    <br><br><br><br>
+    <button onclick="">Sair</button>	
+
+
+</div>
 </body>
-    <script>
-        var upload = function upload(){
-                document.getElementById('titulo').style.display = 'none';
-                document.getElementById('titulo2').style.display = 'block';
-                
-            }
-            var videos = function videos(){
-                document.getElementById('titulo').style.display = 'block';
-                document.getElementById('titulo2').style.display = 'none';
-                
-            }
-    </script> 
+<script>
+    var upload = function upload(){
+        document.getElementById('titulo').style.display = 'none';
+        document.getElementById('titulo2').style.display = 'block';
+
+    }
+    var videos = function videos(){
+        document.getElementById('titulo').style.display = 'block';
+        document.getElementById('titulo2').style.display = 'none';
+
+    }
+</script> 
 
 </html>
